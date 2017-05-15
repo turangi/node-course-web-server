@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+// grab a port for heroku to set, yet still be able to run locally
+const port = process.env.PORT || 3000;
 let app = express();
 
 // register "partials"
@@ -78,20 +80,10 @@ app.get('/bad', (req, res) => {
   })
 });
 
-app.listen(3000, () => {
-  console.log('Server is up on port 3000');
+// use the port constant to use either heroku's supplied port, or a local
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 });
 
 
-// L45 -  "Express Middleware" (see lines 4, 8-9)
-
-// Challenge:  Create a new view "maintenance.hbs".  This will be a
-// handlebars template that we'll render when the site is in maintenance mode.
-// Give it a simple structure such as that in "home" or "about".
-// Render an H1 tag such as "we'll be right back" , and  <p> tag such as:
-// "the site is being updated, we'll be back soon"
-// Render the template file inside a new piece of Middleware.  This means
-// calling app.use() again, defining a function that calls res.render.  No
-// need to call next();   Just write the one-line function call to response
-
-// L46 will cover:
+// L47-48 - setting up the project with git and heroku:
