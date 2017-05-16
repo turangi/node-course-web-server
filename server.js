@@ -65,6 +65,14 @@ app.get('/about', (req, res) => {
   });
 });
 
+// projects page template
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page'
+  });
+});
+
+
 // // maintenance page template
 // app.get('/maintanance', (req, res) => {
 //   res.render('about.hbs', {
@@ -86,4 +94,12 @@ app.listen(port, () => {
 });
 
 
-// L47-48 - setting up the project with git and heroku:
+// L47-48 - setting up the project with git and heroku
+
+// L49 - Add a new projects page to our website.  This page is a place
+// where later on we can link to github projects.   render a handlbars template
+//  make a view file.  render everything in the view file
+// in the actual site, render a message called "Portfolio page here"
+// in the partials header file, add a new link for the new projects page.
+// Once things are tested on localhost 3000, commit, push to gitHub, and then
+// deploy to the heroku remote using "git push heroku", then test again.
